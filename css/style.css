@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --bg: #07070f;
+  --frame: #2a2a55;
+  --glow: rgba(120, 80, 255, 0.35);
+  --pad-h: 0px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: #fff;
+  font-family: "Press Start 2P", "Courier New", monospace;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, #15153a 0%, var(--bg) 70%);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#screen {
+  display: block;
+  width: min(96vw, calc((100vh - 32px - var(--pad-h)) * 0.75));
+  width: min(96vw, calc((100dvh - 32px - var(--pad-h)) * 0.75));
+  aspect-ratio: 3 / 4;
+  height: auto;
+  background: #000;
+  border: 4px solid var(--frame);
+  border-radius: 8px;
+  box-shadow: 0 0 40px var(--glow);
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+/* ---------- Controles táctiles ---------- */
+#pad {
+  display: none;
+  width: min(96vw, 480px);
+  height: 150px;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+#pad button {
+  font-family: inherit;
+  color: #fff;
+  background: #23234a;
+  border: 3px solid #4a4a8a;
+  border-radius: 10px;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#pad button.on, #pad .ab button.on { background: #6a4aff; border-color: #b9a8ff; }
+
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 46px);
+  grid-template-rows: repeat(3, 46px);
+}
+#pad .dpad button { font-size: 14px; }
+.dpad .up    { grid-column: 2; grid-row: 1; }
+.dpad .left  { grid-column: 1; grid-row: 2; }
+.dpad .right { grid-column: 3; grid-row: 2; }
+.dpad .down  { grid-column: 2; grid-row: 3; }
+
+.mid { display: flex; flex-direction: column; gap: 12px; }
+#pad .mid button { font-size: 9px; padding: 10px 8px; }
+
+.ab { display: flex; gap: 12px; align-items: center; }
+#pad .ab button { width: 62px; height: 62px; border-radius: 50%; font-size: 16px; }
+#pad .ab .a { background: #8a1f3a; border-color: #ff5c8a; transform: translateY(-14px); }
+#pad .ab .b { background: #1f4a8a; border-color: #5ca8ff; transform: translateY(10px); }
+
+@media (pointer: coarse) {
+  :root { --pad-h: 160px; }
+  #pad { display: flex; }
+}

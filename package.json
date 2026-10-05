@@ -1,0 +1,10 @@
+{
+  "name": "arcade-8bit",
+  "version": "1.0.0",
+  "description": "Menú de minijuegos retro 8-bit hecho con HTML5 Canvas y JavaScript puro: Tetris, Carretera 8-Bit, Galaga, Snake, Breakout y Pong.",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes http-server . -p 8080 -c-1 -o",
+    "serve": "python3 -m http.server 8080"
+  }
+}

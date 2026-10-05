@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Arcade 8-Bit: menú de minijuegos retro (Tetris, Carretera 8-Bit, Galaga, Snake, Breakout y Pong).">
+  <title>Arcade 8-Bit</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="screen" width="480" height="640">Tu navegador no soporta Canvas.</canvas>
+
+    <!-- Controles táctiles: solo se muestran en pantallas táctiles -->
+    <div id="pad" aria-hidden="true">
+      <div class="dpad">
+        <button data-act="up" class="up">&#9650;</button>
+        <button data-act="left" class="left">&#9664;</button>
+        <button data-act="right" class="right">&#9654;</button>
+        <button data-act="down" class="down">&#9660;</button>
+      </div>
+      <div class="mid">
+        <button data-act="back">ESC</button>
+        <button data-act="start">START</button>
+      </div>
+      <div class="ab">
+        <button data-act="alt" class="b">B</button>
+        <button data-act="fire" class="a">A</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/core.js"></script>
+  <script src="js/games/tetris.js"></script>
+  <script src="js/games/road.js"></script>
+  <script src="js/games/galaga.js"></script>
+  <script src="js/games/snake.js"></script>
+  <script src="js/games/breakout.js"></script>
+  <script src="js/games/pong.js"></script>
+  <script>Arcade.start();</script>
+</body>
+</html>
